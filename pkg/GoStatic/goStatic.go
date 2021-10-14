@@ -192,7 +192,7 @@ func createFileLinks(pages map[string]string, url string) error {
 			pages[link] = "./" + filename
 		} else if strings.Contains(filetype, "text/css") {
 			filename := ""
-			if strings.Contains(link, "plugins"){
+			if strings.Contains(link, "plugins") || strings.Contains(link, "wp-includes"){
 				fragments := strings.Split(link, "/")
 				fragments = delete_empty(fragments)
 				filename = fragments[len(fragments)-2] + "-" + fragments[len(fragments)-1]
@@ -210,7 +210,7 @@ func createFileLinks(pages map[string]string, url string) error {
 			pages[link] = "./css/" + filename
 		} else if strings.Contains(filetype, "javascript") {
 			filename := ""
-			if strings.Contains(link, "plugins"){
+			if strings.Contains(link, "plugins") || strings.Contains(link, "wp-includes"){
 				fragments := strings.Split(link, "/")
 				fragments = delete_empty(fragments)
 				filename = fragments[len(fragments)-2] + "-" + fragments[len(fragments)-1]
@@ -221,7 +221,6 @@ func createFileLinks(pages map[string]string, url string) error {
 			}
 				filename = strings.Split(filename, "?")[0]
 				filename = strings.Replace(filename, ".", "-", strings.Count(filename, ".") - 1)
-			println(filename)
 			pages[link] = "./js/" + filename
 		} else {
 			fragments := strings.Split(link, "/")

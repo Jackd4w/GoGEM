@@ -27,6 +27,8 @@ func PrepFilesForIGEM(teamname, root, mathjax_url string, client *h.Handler) str
 		return err.Error()
 	}
 
+	errors := ""
+
 	for _, filepath := range files {
 		println("Preparing file: " + filepath)
 		file, err := os.Open(filepath) // Open file
@@ -53,9 +55,10 @@ func PrepFilesForIGEM(teamname, root, mathjax_url string, client *h.Handler) str
 		newContent = replacePageExtensions(newContent, mathjax_url)
 
 		fileLinks := findAllFileLinks(newContent)
-		fileAssociations, errors := fileUpload(fileLinks, root, client) // Output from FileUpload method takes fileLinks as input, and uploads all files to the iGEM Wiki
-		if errors != "" {
-			return errors
+		fileAssociations, error := fileUpload(fileLinks, root, client) // Output from FileUpload method takes fileLinks as input, and uploads all files to the iGEM Wiki
+		if error != "" {
+			errors += error + "\n"
+			continue
 		}
 
 		newContent = replaceAllFileLinks(newContent, fileAssociations)
@@ -76,7 +79,7 @@ func PrepFilesForIGEM(teamname, root, mathjax_url string, client *h.Handler) str
 			return err.Error()
 		}
 	}
-	return ""
+	return errors
 }
 
 // Creates list of all files in a directory, and its respective subdirectories.
