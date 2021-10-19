@@ -18,13 +18,26 @@ A pre-compiled version will be available with each release.
 
 If installed the tool can be used by executing the _GoGEM_ command in your CLI.
 
+If you want to use a pre-compiled version you will have to download the executables and place them in a folder that you can access with you command line of choice. Open the folder and run the downloaded executable with the commands stated below.
+
 ## Examples
 
-Upload: _GoGEM upload -u "[Your Username]" -y 2021 -t "TU_Darmstadt" -w "[Your WP Wiki]" -o "test"_
+**Help**: _GoGEM_ or _GoGEM --help_
 
-Save your WP Page: _GoGEM fetchWP [URL]_
+A help message will be displayed if you run the tool without or with wrong input.
 
-Purge: _GoGEM purge -u "[Username]" -y [Wiki Year] -t "[Teamname]" -o "[Offset]"_
+**Upload**: _GoGEM upload -u "[Username]" -y [year] -t "[Teamname]" -w "[WP URL]" -o "[offset]"_
+
+This is the all-in-one command. It downloads your WordPress Page, uploads all the media files, replaces all the links and then uploads all the pages.
+
+**Save your WP Page locally**: _GoGEM fetchWP [URL]_
+
+**Purge**: _GoGEM purge -u "[Username]" -y [Wiki Year] -t "[Teamname]" -o "[Offset]"_
+
+Purge overwrites **all** pages in the defined subspace with an empty one.
+
+You will get a list with deleted pages beforehand and will have to enter your password a second time.
+**BE SURE YOU KNOW WHAT THIS DOES BEFORE USING!**
 
 ## Issues
 
