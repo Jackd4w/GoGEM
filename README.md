@@ -1,5 +1,7 @@
 # GoGEM
 
+![GoGEM Logo](/goGEM-Logo.png)
+
 ## About
 
 GoGEM is a tool designed to make the deployment process of your iGEM-Wiki as easy as possible.
@@ -7,9 +9,10 @@ It is able to automatically fetch a page from a WordPress Instance hosted by you
 
 ## Installation
 
-To install this program download clone the repo to your PC and install go (https://golang.org). After that change into the directory of the repo and execute the _go build_ command.
+To install this programm you can use the _go install github.com/Jackd4w/GoGEM_ command.
+alternatively the cloning of this repo and _go run_ or _go build_ can be used.
 
-A pre-compiled version will be available later on.
+A pre-compiled version will be available with each release.
 
 ## Usage
 
@@ -22,3 +25,7 @@ Upload: _GoGEM upload -u "[Your Username]" -y 2021 -t "TU_Darmstadt" -w "[Your W
 Save your WP Page: _GoGEM fetchWP [URL]_
 
 Purge: _GoGEM purge -u "[Username]" -y [Wiki Year] -t "[Teamname]" -o "[Offset]"_
+
+## Contribution
+
+I tried to comment the code reasonably. Please try writing verbose comments when contributing, as this is intended to be a project a beginner programmer can understand.
